@@ -1,9 +1,17 @@
+package presentation;
+
+import entity.Categories;
 import entity.CategoryManager;
+import entity.Product;
 import entity.ProductManager;
 
 import java.util.Scanner;
 
 public class ShopManagement {
+    public static Categories[] categories = new Categories[100];
+    public static int currentIndex = 0;
+    public static Product[] product = new Product[100];
+    public static int productIndex = 0;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         CategoryManager categoryManager = new CategoryManager();

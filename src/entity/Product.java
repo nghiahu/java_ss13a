@@ -1,5 +1,7 @@
 package entity;
 
+import presentation.ShopManagement;
+
 import java.util.Scanner;
 
 public class Product implements IApp {
@@ -183,8 +185,8 @@ public class Product implements IApp {
             System.out.print("Nhập vào mã danh mục: ");
             int catalogId = Integer.parseInt(scanner.nextLine());
             boolean isFound = false;
-            for (int i = 0; i < categoryManager.currentIndex; i++) {
-                if(catalogId == categoryManager.categories[i].getId()){
+            for (int i = 0; i <= ShopManagement.currentIndex; i++) {
+                if(catalogId == ShopManagement.categories[i].getId()){
                     isFound = true;
                     break;
                 }
@@ -220,7 +222,14 @@ public class Product implements IApp {
         System.out.println("Tiêu đề sản phẩm: " + getTitle());
         System.out.println("Mô tả sản phẩm: " + getDescription());
         System.out.printf("Số lượng sản phẩm: %d - Mã danh mục: %d\n", getQuantity(),getCategoryId());
-        System.out.println("Trạng thái: " + (getStatus()==0?"Đang hết hàng":(getStatus()==1?"Hết hàng":"Không hoạt động")));
+        System.out.println("Trạng thái: " + (getStatus()==0?"Đang hoạt động":(getStatus()==1?"Hết hàng":"Không hoạt động")));
         System.out.println("-----------------------------------------------------------------------------");
+    }
+    public static void main(String[] args) {
+        ProductManager productManager = new ProductManager();
+        CategoryManager categoryManager = new CategoryManager();
+        for (int i = 0; i < ShopManagement.currentIndex; i++) {
+            System.out.println(ShopManagement.categories[i].getId());
+        }
     }
 }

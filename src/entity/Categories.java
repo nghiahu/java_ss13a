@@ -1,5 +1,7 @@
 package entity;
 
+import presentation.ShopManagement;
+
 import java.util.Scanner;
 
 public class Categories implements IApp{
@@ -25,7 +27,7 @@ public class Categories implements IApp{
     CategoryManager categoryManager = new CategoryManager();
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {
@@ -73,9 +75,9 @@ public class Categories implements IApp{
             System.out.print("Nhập tên danh mục: ");
             String nameCatalog = scanner.nextLine();
             boolean isfind = false;
-            if(categoryManager.currentIndex != 0){
-                for(int i = 0; i < categoryManager.currentIndex; i++){
-                    if (nameCatalog.equals(categoryManager.categories[i].getNameCatalog())){
+            if(ShopManagement.currentIndex != 0){
+                for(int i = 0; i < ShopManagement.currentIndex; i++){
+                    if (nameCatalog.equals(ShopManagement.categories[i].getNameCatalog())){
                         System.out.println("Tên bị trùng vui lòng nhập lại");
                         isfind = true;
                         break;

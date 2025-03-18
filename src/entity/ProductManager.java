@@ -1,5 +1,7 @@
 package entity;
 
+import presentation.ShopManagement;
+
 import java.util.Scanner;
 
 public class ProductManager {
@@ -205,13 +207,13 @@ public class ProductManager {
     CategoryManager categoryManager = new CategoryManager();
     public void productStatistics(){
         int count = 0;
-        for (int i = 0; i < categoryManager.currentIndex; i++) {
+        for (int i = 0; i < ShopManagement.currentIndex; i++) {
             for (int j = 0; j < productIndex; j++) {
-                if (categoryManager.categories[i].getId() == product[j].getCategoryId()) {
+                if (ShopManagement.categories[i].getId() == product[j].getCategoryId()) {
                     count++;
                 }
             }
-            System.out.printf("Danh mục %s có %d sản phẩm\n", categoryManager.categories[i].getNameCatalog(), count);
+            System.out.printf("Danh mục %s có %d sản phẩm\n", ShopManagement.categories[i].getNameCatalog(), count);
             count = 0;
         }
     }
